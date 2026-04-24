@@ -161,7 +161,8 @@ export async function registerRoutes(httpServer: Server, app: Express) {
 
   // ── Poll status ───────────────────────────────────────────────────────────
   app.get("/api/proposal/:id/status", (req: Request, res: Response) => {
-    const p = storage.getProposal(req.params.id);
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const p = storage.getProposal(id);
     if (!p) return res.status(404).json({ error: "Not found" });
     res.json({
       status: p.status,
@@ -172,7 +173,8 @@ export async function registerRoutes(httpServer: Server, app: Express) {
 
   // ── Download PDF ──────────────────────────────────────────────────────────
   app.get("/api/proposal/:id/download", (req: Request, res: Response) => {
-    const p = storage.getProposal(req.params.id);
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const p = storage.getProposal(id);
     if (!p || p.status !== "done" || !p.pdfPath) {
       return res.status(404).json({ error: "PDF not ready" });
     }

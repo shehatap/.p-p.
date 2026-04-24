@@ -1,15 +1,15 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Link } from "wouter";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "./use-toast";
+import { apiRequest } from "./queryClient";
 
 const API_BASE = ""; // Express serves frontend + backend on same port
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "./button";
+import { Input } from "./input";
+import { Label } from "./label";
+import { Card, CardContent, CardHeader, CardTitle } from "./card";
+import { Badge } from "./badge";
+import { Separator } from "./separator";
 import {
   Upload, FileText, Image, CheckCircle2, Loader2, Download,
   Trash2, ChevronRight, History, Leaf, Phone, Mail, X

@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 const API_BASE = ""; // Same-origin Express server
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "./button";
+import { Card, CardContent } from "./card";
+import { Badge } from "./badge";
+import { Skeleton } from "./skeleton";
 import { ArrowLeft, Download, FileText, Leaf, Clock } from "lucide-react";
 
 interface ProposalSummary {
