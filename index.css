@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Snappy brand-derived palette — dark green/yellow landscaping tool */
+    --background: 150 12% 97%;
+    --foreground: 150 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 20% 10%;
+    --primary: 150 45% 28%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 46 90% 52%;
+    --secondary-foreground: 150 40% 10%;
+    --muted: 150 10% 93%;
+    --muted-foreground: 150 8% 46%;
+    --accent: 46 90% 52%;
+    --accent-foreground: 150 40% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 10% 86%;
+    --input: 150 10% 86%;
+    --ring: 150 45% 28%;
+    --radius: 0.5rem;
+    --chart-1: 150 45% 28%;
+    --chart-2: 46 90% 52%;
+    --chart-3: 200 60% 40%;
+    --chart-4: 30 80% 50%;
+    --chart-5: 280 60% 50%;
+
+    --snappy-green: #2E5E34;
+    --snappy-yellow: #F5C518;
+    --snappy-dark: #0D1A10;
+  }
+
+  .dark {
+    --background: 150 20% 7%;
+    --foreground: 150 8% 92%;
+    --card: 150 18% 10%;
+    --card-foreground: 150 8% 92%;
+    --popover: 150 18% 10%;
+    --popover-foreground: 150 8% 92%;
+    --primary: 150 40% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 46 80% 48%;
+    --secondary-foreground: 150 40% 8%;
+    --muted: 150 14% 16%;
+    --muted-foreground: 150 8% 58%;
+    --accent: 46 80% 48%;
+    --accent-foreground: 150 40% 8%;
+    --destructive: 0 62% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 12% 22%;
+    --input: 150 12% 22%;
+    --ring: 150 40% 45%;
+    --chart-1: 150 40% 45%;
+    --chart-2: 46 80% 55%;
+    --chart-3: 200 55% 55%;
+    --chart-4: 30 75% 60%;
+    --chart-5: 280 55% 60%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Work Sans', system-ui, sans-serif;
+  }
+}
+
+/* Drop zone */
+.drop-zone {
+  @apply border-2 border-dashed border-border rounded-xl p-8 text-center cursor-pointer
+         transition-all duration-200 hover:border-primary hover:bg-primary/5;
+}
+.drop-zone.drag-over {
+  @apply border-primary bg-primary/10 scale-[1.01];
+}
+
+/* Image thumbnail grid */
+.thumb-grid {
+  @apply grid gap-2;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+}
+
+/* Steps nav */
+.step-dot {
+  @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold
+         transition-all duration-200;
+}
+.step-dot.active   { @apply bg-primary text-white shadow-md; }
+.step-dot.done     { @apply bg-green-500 text-white; }
+.step-dot.inactive { @apply bg-muted text-muted-foreground; }
+
+/* Progress shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.dark .shimmer {
+  background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+  background-size: 200% 100%;
+}
+
+/* Scope item rows */
+.scope-row {
+  @apply flex items-start gap-3 p-3 rounded-lg bg-muted/50 border border-border/50
+         text-sm hover:bg-muted transition-colors;
+}
