@@ -1,7 +1,7 @@
 import path from "path";
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import Database from "better-sqlite3";
-import { proposals, type Proposal, type InsertProposal } from "@shared/schema";
+import { proposals, type Proposal, type InsertProposal } from "./schema";
 import { eq } from "drizzle-orm";
 
 const sqlite = new Database(path.join(process.cwd(), "proposals.db"));
